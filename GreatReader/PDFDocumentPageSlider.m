@@ -8,7 +8,7 @@
 
 #import "PDFDocumentPageSlider.h"
 
-#import <KVOController/FBKVOController.h>
+#import "FBKVOController.h"
 
 #import "NSArray+GreatReaderAdditions.h"
 #import "PDFDocumentPageSliderModel.h"
@@ -78,6 +78,7 @@
               forControlEvents:UIControlEventTouchUpInside];    
     [self.forwardButton sizeToFit];
     [self addSubview:self.forwardButton];
+    [super awakeFromNib];
 }
 
 #pragma mark -

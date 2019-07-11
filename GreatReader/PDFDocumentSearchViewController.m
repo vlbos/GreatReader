@@ -8,7 +8,7 @@
 
 #import "PDFDocumentSearchViewController.h"
 
-#import <KVOController/FBKVOController.h>
+#import "FBKVOController/FBKVOController.h"
 
 #import "PDFDocumentSearchViewModel.h"
 #import "PDFDocumentSearchResult.h"

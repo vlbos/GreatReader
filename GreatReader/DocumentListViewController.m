@@ -122,16 +122,61 @@ NSString * const DocumentListViewControllerSeguePDFDocument = @"DocumentListView
 
 - (void)delete:(id)sender
 {
-    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil
-                                                       delegate:self
-                                              cancelButtonTitle:LocalizedString(@".cancel")
-                                         destructiveButtonTitle:LocalizedString(@".delete")
-                                              otherButtonTitles:nil];
+///lisheng
+//    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil
+//                                                       delegate:self
+//                                              cancelButtonTitle:LocalizedString(@".cancel")
+//                                         destructiveButtonTitle:LocalizedString(@".delete")
+//                                              otherButtonTitles:nil];
+//    if (IsPad()) {
+//        [sheet showFromBarButtonItem:sender animated:YES];
+//    } else {
+//        [sheet showInView:self.view];
+//    }
+    
+    
+    
+    UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:nil message:@"alert controller" preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    [actionSheet addAction:[UIAlertAction actionWithTitle:LocalizedString(@".cancel") style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+     
+        
+        // Cancel button tappped.
+        [self dismissViewControllerAnimated:YES completion:^{
+        }];
+    }]];
+    
+    [actionSheet addAction:[UIAlertAction actionWithTitle:LocalizedString(@".delete") style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+        [self.viewModel deleteDocuments:self.selectedDocuments];
+                [self deleteCellsAtIndexPaths:self.selectedIndexPaths];
+                [self updateButtonsEnabled];
+        // Distructive button tapped.
+        [self dismissViewControllerAnimated:YES completion:^{
+        }];
+    }]];
+    
+    [actionSheet addAction:[UIAlertAction actionWithTitle:nil style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        
+        // OK button tapped.
+
+        
+        [self dismissViewControllerAnimated:YES completion:^{
+        }];
+    }]];
+    
     if (IsPad()) {
-        [sheet showFromBarButtonItem:sender animated:YES];
-    } else {
-        [sheet showInView:self.view];
+                    actionSheet.popoverPresentationController.sourceView = sender; //your view
+                    actionSheet.popoverPresentationController.sourceRect = ((UIView*)sender).bounds; //your view
+                    actionSheet.popoverPresentationController.permittedArrowDirections = UIPopoverArrowDirectionAny;
     }
+    else
+    {
+        
+        // Present action sheet.
+        [self presentViewController:actionSheet animated:YES completion:nil];
+    }
+    
+    
 }
 
 - (void)performAction:(id)sender
@@ -151,14 +196,15 @@ NSString * const DocumentListViewControllerSeguePDFDocument = @"DocumentListView
 
 #pragma mark - UIActionSheet Delegate
 
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (actionSheet.destructiveButtonIndex == buttonIndex) {
-        [self.viewModel deleteDocuments:self.selectedDocuments];
-        [self deleteCellsAtIndexPaths:self.selectedIndexPaths];
-        [self updateButtonsEnabled];
-    }
-}
+///lisheng
+//- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+//{
+//    if (actionSheet.destructiveButtonIndex == buttonIndex) {
+//        [self.viewModel deleteDocuments:self.selectedDocuments];
+//        [self deleteCellsAtIndexPaths:self.selectedIndexPaths];
+//        [self updateButtonsEnabled];
+//    }
+//}
 
 #pragma mark - Navigation
 

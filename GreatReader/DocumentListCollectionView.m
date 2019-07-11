@@ -20,6 +20,7 @@
 {
     self.emptyTitleLabel.text = LocalizedString(@"home.no-books");
     self.emptyDescriptionLabel.text = LocalizedString(@"home.no-books-description");
+    [super awakeFromNib];
 }
 
 - (void)layoutSubviews

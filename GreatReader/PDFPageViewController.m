@@ -30,7 +30,7 @@
 @property (nonatomic, strong, readwrite) PDFPage *page;
 @property (nonatomic, strong, readwrite) PDFPageContentView *contentView;
 @property (nonatomic, strong) UIImageView *lowResolutionView;
-@property (nonatomic, strong) UIPopoverController *popover;
+//@property (nonatomic, strong) UIPopoverController *popover;
 @end
 
 @implementation PDFPageViewController
@@ -294,11 +294,20 @@
     UIReferenceLibraryViewController *vc = [[UIReferenceLibraryViewController alloc]
                                                initWithTerm:selectedString];
     if (IsPad()) {
-        self.popover = [[UIPopoverController alloc] initWithContentViewController:vc];
-        [self.popover presentPopoverFromRect:contentView.selectionFrame
-                                      inView:contentView
-                    permittedArrowDirections:UIPopoverArrowDirectionUp | UIPopoverArrowDirectionDown
-                                    animated:YES];
+//        avc.modalPresentationStyle = UIModalPresentationPopover;
+//        avc.popoverPresentationController.sourceView = theButton;
+//        [self presentViewController:avc animated:YES completion:nil];
+        
+        vc.modalPresentationStyle                   = UIModalPresentationPopover;
+        vc.popoverPresentationController.sourceView = contentView;
+        vc.popoverPresentationController.sourceRect = contentView.selectionFrame;
+        [self presentViewController:vc animated:YES completion:nil];
+        
+        //        self.popover = [[UIPopoverController alloc] initWithContentViewController:vc];
+//        [self.popover presentPopoverFromRect:contentView.selectionFrame
+//                                      inView:contentView
+//                    permittedArrowDirections:UIPopoverArrowDirectionUp | UIPopoverArrowDirectionDown
+//                                    animated:YES];
     } else {
         [self presentViewController:vc
                            animated:YES

@@ -219,10 +219,11 @@
                                  glyphs,
                                  1);
     double w = CTFontGetAdvancesForGlyphs(ctFont,
-                                          kCTFontDefaultOrientation,
+                                          kCTFontOrientationDefault,
                                           glyphs,
                                           NULL,
                                           1);
+    //kCTFontDefaultOrientation,
     CGFontRelease(cgFont);
     CFRelease(ctFont);
     free(glyphs);

@@ -8,7 +8,7 @@
 
 #import "DocumentTableViewCell.h"
 
-#import <KVOController/FBKVOController.h>
+#import "FBKVOController.h"
 
 #import "PDFDocument.h"
 
@@ -22,6 +22,7 @@
 {
     CGFloat scale = UIScreen.mainScreen.scale;
     self.imageView.layer.borderWidth = 1.0 / scale;
+    [super awakeFromNib];
 }
 
 - (void)setDocument:(PDFDocument *)document

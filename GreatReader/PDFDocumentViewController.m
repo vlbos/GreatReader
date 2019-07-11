@@ -411,14 +411,14 @@ willTransitionToViewControllers:(NSArray *)pendingViewControllers
         vc.viewModel = [[PDFDocumentSearchViewModel alloc] initWithSearch:self.document.search
                                                                   outline:self.document.outline];
     }
-
-    if ([segue isKindOfClass:UIStoryboardPopoverSegue.class]) {
-        UIStoryboardPopoverSegue *popoverSegue = (UIStoryboardPopoverSegue *)segue;
-        UIPopoverController *popoverController = popoverSegue.popoverController;
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-            popoverController.passthroughViews = @[];
-        });
-    }
+///lisheng
+//    if ([segue isKindOfClass:UIStoryboardPopoverSegue.class]) {
+//        UIStoryboardPopoverSegue *popoverSegue = (UIStoryboardPopoverSegue *)segue;
+//        UIPopoverController *popoverController = popoverSegue.popoverController;
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+//            popoverController.passthroughViews = @[];
+//        });
+//    }
 }
 
 #pragma mark -
