@@ -222,7 +222,6 @@
 		19FE766B19BC303E00E64550 /* The Adventres of Sherlock Holmes.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 19FE766719BC303E00E64550 /* The Adventres of Sherlock Holmes.pdf */; };
 		19FE766D19BC334D00E64550 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 19FE766C19BC334D00E64550 /* Settings.bundle */; };
 		1A22BECB22D75F0900F7A4C0 /* FBKVOController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A22BECA22D75F0800F7A4C0 /* FBKVOController.m */; };
-		1A22BED322D76E8400F7A4C0 /* libFBKVOController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A22BED222D76E8400F7A4C0 /* libFBKVOController.a */; };
 		1A22BEE822D7706700F7A4C0 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A22BEE722D7706700F7A4C0 /* Fabric.framework */; };
 		1A22BEED22D7709B00F7A4C0 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A22BEEB22D7709B00F7A4C0 /* Crashlytics.framework */; };
 		1A22BEEE22D7709B00F7A4C0 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A22BEEC22D7709B00F7A4C0 /* Fabric.framework */; };
@@ -483,7 +482,6 @@
 				1A22BEE822D7706700F7A4C0 /* Fabric.framework in Frameworks */,
 				1A22BEEE22D7709B00F7A4C0 /* Fabric.framework in Frameworks */,
 				1A22BEED22D7709B00F7A4C0 /* Crashlytics.framework in Frameworks */,
-				1A22BED322D76E8400F7A4C0 /* libFBKVOController.a in Frameworks */,
 				1997502918D08C73008D514B /* CoreText.framework in Frameworks */,
 				19D99DBA18827192006FDA6F /* QuartzCore.framework in Frameworks */,
 				19F7BA65186052E2009E8916 /* UIKit.framework in Frameworks */,
