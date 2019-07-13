@@ -122,6 +122,10 @@ NSString * const DocumentListViewControllerSeguePDFDocument = @"DocumentListView
 
 - (void)delete:(id)sender
 {
+    
+    [self.viewModel deleteDocuments:self.selectedDocuments];
+    [self deleteCellsAtIndexPaths:self.selectedIndexPaths];
+    [self updateButtonsEnabled];
 ///lisheng
 //    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil
 //                                                       delegate:self
@@ -135,46 +139,46 @@ NSString * const DocumentListViewControllerSeguePDFDocument = @"DocumentListView
 //    }
     
     
-    
-    UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:nil message:@"alert controller" preferredStyle:UIAlertControllerStyleActionSheet];
-    
-    [actionSheet addAction:[UIAlertAction actionWithTitle:LocalizedString(@".cancel") style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
-     
-        
-        // Cancel button tappped.
-        [self dismissViewControllerAnimated:YES completion:^{
-        }];
-    }]];
-    
-    [actionSheet addAction:[UIAlertAction actionWithTitle:LocalizedString(@".delete") style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
-        [self.viewModel deleteDocuments:self.selectedDocuments];
-                [self deleteCellsAtIndexPaths:self.selectedIndexPaths];
-                [self updateButtonsEnabled];
-        // Distructive button tapped.
-        [self dismissViewControllerAnimated:YES completion:^{
-        }];
-    }]];
-    
-    [actionSheet addAction:[UIAlertAction actionWithTitle:nil style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        
-        // OK button tapped.
-
-        
-        [self dismissViewControllerAnimated:YES completion:^{
-        }];
-    }]];
-    
-    if (IsPad()) {
-                    actionSheet.popoverPresentationController.sourceView = sender; //your view
-                    actionSheet.popoverPresentationController.sourceRect = ((UIView*)sender).bounds; //your view
-                    actionSheet.popoverPresentationController.permittedArrowDirections = UIPopoverArrowDirectionAny;
-    }
-    else
-    {
-        
-        // Present action sheet.
-        [self presentViewController:actionSheet animated:YES completion:nil];
-    }
+//
+//    UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:@"" message:@"alert controller" preferredStyle:UIAlertControllerStyleActionSheet];
+//
+//    [actionSheet addAction:[UIAlertAction actionWithTitle:LocalizedString(@".cancel") style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+//
+//
+//        // Cancel button tappped.
+//        [self dismissViewControllerAnimated:YES completion:^{
+//        }];
+//    }]];
+//
+//    [actionSheet addAction:[UIAlertAction actionWithTitle:LocalizedString(@".delete") style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+//        [self.viewModel deleteDocuments:self.selectedDocuments];
+//                [self deleteCellsAtIndexPaths:self.selectedIndexPaths];
+//                [self updateButtonsEnabled];
+//        // Distructive button tapped.
+//        [self dismissViewControllerAnimated:YES completion:^{
+//        }];
+//    }]];
+//
+//    [actionSheet addAction:[UIAlertAction actionWithTitle:@"" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+//
+//        // OK button tapped.
+//
+//
+//        [self dismissViewControllerAnimated:YES completion:^{
+//        }];
+//    }]];
+//
+////    if (IsPad()) {
+////                    actionSheet.popoverPresentationController.sourceView = sender; //your view
+////        actionSheet.popoverPresentationController.sourceRect =self.view.frame;// ((UIView*)sender).bounds; //your view
+////                    actionSheet.popoverPresentationController.permittedArrowDirections = UIPopoverArrowDirectionAny;
+////    }
+////    else
+//    {
+//
+//        // Present action sheet.
+//        [self presentViewController:actionSheet animated:YES completion:nil];
+//    }
     
     
 }

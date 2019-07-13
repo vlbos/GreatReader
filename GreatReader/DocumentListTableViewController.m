@@ -34,6 +34,11 @@
 
 - (void)delete:(id)sender
 {
+    
+    [self.viewModel removeDocumentHistories:self.selectedDocuments];
+            [self deleteCellsAtIndexPaths:self.selectedIndexPaths];
+            [self updateButtonsEnabled];
+    
 //    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil
 //                                                       delegate:self
 //                                              cancelButtonTitle:LocalizedString(@".cancel")
@@ -45,50 +50,50 @@
 //        [sheet showInView:self.view];
 //    }
     
-    
-    UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:nil message:@"alert controller" preferredStyle:UIAlertControllerStyleActionSheet];
-    
-    [actionSheet addAction:[UIAlertAction actionWithTitle:LocalizedString(@".cancel") style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+//
+//    UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:nil message:@"alert controller" preferredStyle:UIAlertControllerStyleActionSheet];
+//
+//    [actionSheet addAction:[UIAlertAction actionWithTitle:LocalizedString(@".cancel") style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+////        [self.viewModel removeDocumentHistories:self.selectedDocuments];
+////        [self deleteCellsAtIndexPaths:self.selectedIndexPaths];
+////        [self updateButtonsEnabled];
+//
+//        // Cancel button tappped.
+//        [self dismissViewControllerAnimated:YES completion:^{
+//        }];
+//    }]];
+//
+//    [actionSheet addAction:[UIAlertAction actionWithTitle:LocalizedString(@".delete") style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+////        [self.viewModel removeDocumentHistories:self.selectedDocuments];
+////        [self deleteCellsAtIndexPaths:self.selectedIndexPaths];
+////        [self updateButtonsEnabled];
+//        // Distructive button tapped.
+//        [self dismissViewControllerAnimated:YES completion:^{
+//        }];
+//    }]];
+//
+//    [actionSheet addAction:[UIAlertAction actionWithTitle:LocalizedString(@".remove-history") style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+//
+//        // OK button tapped.
 //        [self.viewModel removeDocumentHistories:self.selectedDocuments];
 //        [self deleteCellsAtIndexPaths:self.selectedIndexPaths];
 //        [self updateButtonsEnabled];
-        
-        // Cancel button tappped.
-        [self dismissViewControllerAnimated:YES completion:^{
-        }];
-    }]];
-    
-    [actionSheet addAction:[UIAlertAction actionWithTitle:LocalizedString(@".delete") style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
-//        [self.viewModel removeDocumentHistories:self.selectedDocuments];
-//        [self deleteCellsAtIndexPaths:self.selectedIndexPaths];
-//        [self updateButtonsEnabled];
-        // Distructive button tapped.
-        [self dismissViewControllerAnimated:YES completion:^{
-        }];
-    }]];
-    
-    [actionSheet addAction:[UIAlertAction actionWithTitle:LocalizedString(@".remove-history") style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        
-        // OK button tapped.
-        [self.viewModel removeDocumentHistories:self.selectedDocuments];
-        [self deleteCellsAtIndexPaths:self.selectedIndexPaths];
-        [self updateButtonsEnabled];
-        
-        [self dismissViewControllerAnimated:YES completion:^{
-        }];
-    }]];
-    
-    if (IsPad()) {
-        //            actionSheet.popoverPresentationController.sourceView = sender; //your view
-//            actionSheet.popoverPresentationController.sourceRect = sender.bounds; //your view
-//            actionSheet.popoverPresentationController.permittedArrowDirections = UIPopoverArrowDirectionAny;
-        }
-        else
-        {
-    
-    // Present action sheet.
-    [self presentViewController:actionSheet animated:YES completion:nil];
-        }
+//
+//        [self dismissViewControllerAnimated:YES completion:^{
+//        }];
+//    }]];
+//
+//    if (IsPad()) {
+////                    actionSheet.popoverPresentationController.sourceView = sender; //your view
+////            actionSheet.popoverPresentationController.sourceRect = sender.bounds; //your view
+////            actionSheet.popoverPresentationController.permittedArrowDirections = UIPopoverArrowDirectionAny;
+//        }
+//        else
+//        {
+//
+//    // Present action sheet.
+//    [self presentViewController:actionSheet animated:YES completion:nil];
+//        }
 
 }
 
