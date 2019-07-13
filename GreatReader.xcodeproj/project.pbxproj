@@ -231,7 +231,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		19F7BA8F186052E2009E8916 /* PBXContainerItemProxy */ = {
+		1AEDFFF622D9FDDE00881CCC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 19F7BA59186052E2009E8916 /* Project object */;
 			proxyType = 1;
@@ -995,7 +995,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				19F7BA90186052E2009E8916 /* PBXTargetDependency */,
+				1AEDFFF722D9FDDE00881CCC /* PBXTargetDependency */,
 			);
 			name = GreatReaderTests;
 			productName = GreatReaderTests;
@@ -1014,6 +1014,10 @@
 				TargetAttributes = {
 					19F7BA60186052E2009E8916 = {
 						DevelopmentTeam = AK4FJ59EVM;
+					};
+					19F7BA89186052E2009E8916 = {
+						DevelopmentTeam = AK4FJ59EVM;
+						TestTargetID = 19F7BA60186052E2009E8916;
 					};
 				};
 			};
@@ -1291,10 +1295,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		19F7BA90186052E2009E8916 /* PBXTargetDependency */ = {
+		1AEDFFF722D9FDDE00881CCC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 19F7BA60186052E2009E8916 /* GreatReader */;
-			targetProxy = 19F7BA8F186052E2009E8916 /* PBXContainerItemProxy */;
+			targetProxy = 1AEDFFF622D9FDDE00881CCC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1603,7 +1607,7 @@
 		19F7BA9A186052E2009E8916 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -1636,7 +1640,7 @@
 		19F7BA9B186052E2009E8916 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -1707,6 +1711,8 @@
 		19F7BAA0186052E2009E8916 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = AK4FJ59EVM;
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
@@ -1715,6 +1721,7 @@
 				GCC_PREFIX_HEADER = "GreatReader/GreatReader-Prefix.pch";
 				INFOPLIST_FILE = "GreatReaderTests/GreatReaderTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GreatReader.app/GreatReader";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
@@ -1722,6 +1729,8 @@
 		19F7BAA1186052E2009E8916 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = AK4FJ59EVM;
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
@@ -1730,6 +1739,7 @@
 				GCC_PREFIX_HEADER = "GreatReader/GreatReader-Prefix.pch";
 				INFOPLIST_FILE = "GreatReaderTests/GreatReaderTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GreatReader.app/GreatReader";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
